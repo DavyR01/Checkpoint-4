@@ -1,0 +1,8 @@
+.App-header {
+  background-image: url("../assets/homePicture2.jpg");
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  color: "purple";
+}

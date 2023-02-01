@@ -5,17 +5,17 @@ class CoinsManager extends AbstractManager {
     super({ table: "coins" });
   }
 
-  insert(item) {
+  insert(coin) {
     return this.connection.query(
-      `insert into ${this.table} (title) values (?)`,
-      [item.title]
+      `insert into ${this.table} (name) values (?)`,
+      [coin.name]
     );
   }
 
-  update(item) {
+  update(coin) {
     return this.connection.query(
       `update ${this.table} set name = ? where id = ?`,
-      [item.title, item.id]
+      [coin.name, coin.id]
     );
   }
 }

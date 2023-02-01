@@ -6,3 +6,11 @@
   margin: 0 auto;
   color: "purple";
 }
+
+/* .imagesAccueil {
+  display: flex;
+  justify-content: center;
+} */
+.imagesAccueil img {
+  width: 400px;
+}

@@ -40,7 +40,7 @@ function Navbar() {
             to="allcollections"
             onClick={handleShowLinks}
           >
-            Liste de Pièces
+            Catalogue Pièces
           </Link>
         </li>
         <li className="navBarItem slideInDown-3">
@@ -55,6 +55,15 @@ function Navbar() {
         <li className="navBarItem slideInDown-4">
           <Link className="navBarLink" to="contact" onClick={handleShowLinks}>
             Contact
+          </Link>
+        </li>
+        <li className="navBarItem slideInDown-4">
+          <Link
+            className="navBarLink"
+            to="authentification"
+            onClick={handleShowLinks}
+          >
+            Mon Espace Compte
           </Link>
         </li>
       </ul>

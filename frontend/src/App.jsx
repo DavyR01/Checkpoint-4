@@ -10,6 +10,7 @@ import Navbar2 from "./components/Navbar2";
 import Contact from "./pages/Contact";
 import Authentification from "./pages/Authentification";
 import Dashboard from "./pages/Dashboard";
+import AllCollectionsDetails from "./pages/AllCollectionsDetails";
 // import Tendances from "./pages/Tendances";
 
 function App() {
@@ -23,6 +24,10 @@ function App() {
           <Route path="/inscription" element={<Inscription />} />
           <Route path="/mycollection" element={<MyCollection />} />
           <Route path="/allcollections" element={<AllCollections />} />
+          <Route
+            path="/allcollections/:id"
+            element={<AllCollectionsDetails />}
+          />
           <Route path="/contact" element={<Contact />} />
           <Route path="/authentification" element={<Authentification />} />
           <Route path="/dashboard" element={<Dashboard />} />

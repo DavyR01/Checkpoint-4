@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
   const [name, setName] = useState("");
   const [metal, setMetal] = useState("");
-  const [date, setDate] = useState("");
+  const [dateHistory, setDate] = useState("");
   const [value, setValue] = useState("");
   const [price, setPrice] = useState("");
   const [country, setCountry] = useState("");
   const [picture, setPicture] = useState("");
   const [content, setContent] = useState("");
   const [devise, setDevise] = useState("");
+  const navigate = useNavigate();
 
   const handleForm = (e) => {
     const myHeaders = new Headers();
@@ -19,7 +21,7 @@ export default function Dashboard() {
     const body = JSON.stringify({
       name,
       metal,
-      date,
+      dateHistory,
       value,
       price,
       country,
@@ -30,6 +32,7 @@ export default function Dashboard() {
 
     const requestOptions = {
       method: "POST",
+      redirect: "follow",
       headers: myHeaders,
       body,
     };
@@ -38,6 +41,9 @@ export default function Dashboard() {
     fetch("http://localhost:5000/api/coins", requestOptions)
       .then((response) => {
         response.text();
+        setTimeout(() => {
+          navigate("/allcollections");
+        }, 2000);
       })
       .catch(console.error);
   };

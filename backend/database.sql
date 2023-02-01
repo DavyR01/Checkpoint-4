@@ -7,7 +7,7 @@ CREATE TABLE
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         name VARCHAR(100) NULL,
         metal VARCHAR(100) NULL,
-        date_history INT NULL,
+        dateHistory INT NULL,
         value INT NULL,
         price VARCHAR(100) NULL,
         country VARCHAR(255) NULL,
@@ -20,7 +20,7 @@ INSERT INTO
     coins (
         name,
         metal,
-        date_history,
+        dateHistory,
         value,
         price,
         country,

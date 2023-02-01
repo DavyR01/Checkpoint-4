@@ -7,8 +7,18 @@ class CoinsManager extends AbstractManager {
 
   insert(coin) {
     return this.connection.query(
-      `insert into ${this.table} (name) values (?)`,
-      [coin.name]
+      `insert into ${this.table} (name, metal, dateHistory, value, price, country, picture, content, devise) values (?,?,?,?,?,?,?,?,?)`,
+      [
+        coin.name,
+        coin.metal,
+        coin.dateHistory,
+        coin.value,
+        coin.price,
+        coin.country,
+        coin.picture,
+        coin.content,
+        coin.devise,
+      ]
     );
   }
 

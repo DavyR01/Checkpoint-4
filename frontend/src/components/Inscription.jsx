@@ -108,7 +108,7 @@ function Inscription() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-calypso hover:bg-calypsoLight font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white"
+                className="w-full bg-calypso hover:bg-calypsoLight font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white hover:scale-105 duration-700 transition-transform"
               >
                 S'enregistrer{" "}
               </button>

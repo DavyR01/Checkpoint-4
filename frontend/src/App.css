@@ -21,6 +21,10 @@ code {
   padding: 0;
   scroll-behavior: smooth;
 }
+
+html {
+  background: rgb(0, 0, 0);
+}
 /* 
 html,
 body,

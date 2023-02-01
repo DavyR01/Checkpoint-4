@@ -1,0 +1,146 @@
+.navBar {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  height: 75px;
+  padding: 1rem;
+  background: transparent;
+  color: #fff;
+  z-index: 3;
+  opacity: 1;
+}
+
+.navBurger {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  display: block;
+  position: fixed;
+  right: 0;
+  margin-right: 10px;
+}
+
+.navBarLinks {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  position: fixed;
+  right: -100vw;
+  width: 0;
+  top: 0;
+  height: auto;
+  padding: 0.5rem;
+  background-color: #262525;
+  /* background: linear-gradient(45deg, rgb(0, 0, 0), rgb(134, 130, 57)); */
+  visibility: hidden;
+  transition: all 0.5s ease-out;
+}
+
+.showNav .navBarLinks {
+  width: 30vw;
+  right: 0;
+  visibility: visible;
+}
+.navBarLink {
+  display: block;
+  padding: 0.7rem;
+  transition: 0.7s;
+}
+
+.navBarLink:hover {
+  color: goldenrod;
+  opacity: 1;
+}
+
+.navBurger:hover {
+  cursor: pointer;
+}
+/* Creating white lines to create the burger */
+.burgerLine,
+.burgerLine::before,
+.burgerLine::after {
+  display: block;
+  width: 30px;
+  height: 3px;
+  position: relative;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+.burgerLine::before,
+.burgerLine::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+/* Position of white line before */
+.burgerLine::before {
+  transform: translateY(-10px);
+}
+
+/* Position of white line after */
+.burgerLine::after {
+  transform: translateY(10px);
+}
+
+/* middle white line disapear when showNav is active */
+.showNav .burgerLine {
+  width: 0;
+  background: transparent;
+}
+
+/* top line rotate when showNav is active */
+.showNav .burgerLine::before {
+  transform: rotate(45deg);
+}
+/* bottom line rotate when showNav is active */
+.showNav .burgerLine::after {
+  transform: rotate(-45deg);
+}
+
+.navBarItem:last-child::after {
+  display: none;
+}
+.navBarItem {
+  transform: translateY(100vh);
+}
+.showNav .navBarItem {
+  transform: translateY(0);
+}
+
+/* broad the area in order to facilitate the click on the cross */
+.showNav .navBurger {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 0;
+  margin-right: 10px;
+}
+
+.hidden {
+  position: fixed;
+  transition: 0.3s linear;
+}
+
+@media screen and (min-width: 500px) {
+  .navBarLink {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .showNav .navBarLinks {
+    width: 100vw;
+    right: 0;
+  }
+  .navBarLink {
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+    padding: 0.4rem;
+  }
+}

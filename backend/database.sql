@@ -1,9 +1,9 @@
-/************** TABLE currency *****************/
+/************** TABLE coins *****************/
 
-DROP TABLE IF EXISTS currency;
+DROP TABLE IF EXISTS coins;
 
 CREATE TABLE
-    currency (
+    coins (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         name VARCHAR(100) NULL,
         metal VARCHAR(100) NULL,
@@ -17,7 +17,7 @@ CREATE TABLE
     );
 
 INSERT INTO
-    currency (
+    coins (
         name,
         metal,
         date_history,
@@ -192,8 +192,8 @@ CREATE TABLE
         email VARCHAR(200) NOT NULL,
         avatar VARCHAR(255),
         hashedPassword VARCHAR(100) NOT NULL,
-        currency_id INT,
-        FOREIGN KEY (currency_id) REFERENCES currency(id)
+        coins_id INT,
+        FOREIGN KEY (coins_id) REFERENCES coins(id)
     );
 
 INSERT INTO

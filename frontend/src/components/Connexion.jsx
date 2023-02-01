@@ -1,8 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 // import Accueil from "../pages/Accueil";
 
 function Connexion() {
+  const navigate = useNavigate();
+
   return (
     <div className="">
       <section className="sectionDown pt-24">
@@ -97,6 +99,7 @@ function Connexion() {
               </div>
               <button
                 type="submit"
+                onClick={() => navigate(`/`)}
                 className="w-full bg-calypso hover:bg-calypsoLight font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white"
               >
                 Se Connecter{" "}

@@ -34,6 +34,11 @@ function Navbar() {
             Accueil
           </Link>
         </li>
+        <li className="navBarItem slideInDown-1">
+          <Link className="navBarLink" to="dashboard" onClick={handleShowLinks}>
+            Tableau de bord
+          </Link>
+        </li>
         <li className="navBarItem slideInDown-2">
           <Link
             className="navBarLink"

@@ -8,7 +8,7 @@ CREATE TABLE
         name VARCHAR(100) NULL,
         metal VARCHAR(100) NULL,
         date_history INT NULL,
-        value VARCHAR(50) NULL,
+        value INT NULL,
         price VARCHAR(100) NULL,
         country VARCHAR(255) NULL,
         picture VARCHAR(255),
@@ -82,10 +82,10 @@ VALUES (
         'Big Five Africa - Water Buffalo',
         'Argent',
         '2020',
-        '10 000',
+        '10000',
         '17 000€',
         'Cote Ivoire',
-        'mapiece.jpeg',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_dd60fe4a-8aa4-490a-a9c7-4c772de9baaa.jpg?v=1664347991',
         "Le puissant buffle d'eau marque le dernier numéro du Big Five Africa en 5 oz. or pur. Compte tenu de la haute demande pour les quatre premiers numéros de cette série, la Water Buffalo fera sûrement suite à ce succès. La combinaison du haut-relief très détaillé et de l'antique font de cette pièce une pièce unique en son genre. Le tirage est strictement limité à 99 pièces dans le monde.",
         'Francs CFA'
     ), (
@@ -95,7 +95,7 @@ VALUES (
         '5',
         '60€',
         'Athènes',
-        'mapiece.jpeg',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_679573f4-67cb-4c2c-9a8d-702c1d882380.jpg?v=1669119503',
         "Les Spartiates - des guerriers musclés et intrépides de la Grèce antique - étaient réputés pour leur armée quasi invincible et leurs compétences inégalées en matière de combat à l'aide de longues lances, d'épées et de boucliers ronds fabriqués en bronze et en bois, qui ont captivé l'imagination pendant des siècles. Les mythes qui entourent Sparte et sa société de guerriers sont aussi vieux que la ville elle-même. Réputée fondée au 9e siècle avant J.-C., elle était co-dirigée par deux rois qui arbitraient en temps de guerre. Après sa victoire sur la cité-État rivale d'Athènes lors de la guerre du Péloponnèse (431-404 av. J.-C.), Sparte est devenue l'État le plus puissant de Grèce. Le verso représente Le retour d'Hélène sur un quadrige",
         'Dollars'
     ), (
@@ -105,7 +105,7 @@ VALUES (
         '5',
         '300€',
         'Irlande du Nord',
-        'mapiece.jpeg',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_8259a69b-3803-4db6-b3ed-ccf40b06b922.jpg?v=1669035317',
         "Elizabeth II, reine du Royaume-Uni de Grande-Bretagne et d'Irlande du Nord, est l'une des personnalités les plus influentes du XXe siècle. Bien que le paysage politique du Royaume-Uni et du monde ait radicalement changé au cours de ses 70 ans de règne, Elizabeth II est restée un monarque très apprécié et populaire dans le monde entier. Le décès de Sa Majesté marque la fin d'une ère remarquable, que le monde ne verra peut-être pas avant des années.",
         'Dollars'
     ), (
@@ -155,7 +155,7 @@ VALUES (
         '1',
         '90€',
         'Le Caire',
-        'mapiece.jpeg',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/2_dc7690ca-1309-4d03-a26a-42872baa6860.png?v=1670418172',
         "Chacune de ces pièces en ultra-haut relief intelligentes montre trois pharaons différents au revers et une incroyable vue à vol d’oiseau de la nécropole de Gizeh sur l’avers. Les trois pharaons présentés sont Akhenaton, Thoutmosis III et Sobekneferu, la première femme pharaon. Chacun ayant son propre look distinctif. Derrière eux se trouvent des hiéroglyphes de l’ancien artefact « La stèle révélatrice » qui se trouve au musée Boulak au Caire.",
         'Dollars'
     ), (
@@ -165,7 +165,7 @@ VALUES (
         '100',
         '860€',
         'Asie',
-        'mapiece.jpeg',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_2eda7e94-22ca-43d8-aeaa-e8d6f19faec1.png?v=1655367874',
         "Cette magnifique pièce d'or de 1 oz est la dernière sortie de la série Big Five consacrée à certaines des espèces les plus fascinantes du monde. Dans cette édition, il s'agit de l'éléphant. La pièce présente un énorme dessin en haut-relief, une qualité de finition antique et est livrée dans un étui, avec le certificat d'authenticité. Tirage limité à 199 pièces dans le monde entier.",
         'Francs CFA'
     ), (
@@ -178,6 +178,26 @@ VALUES (
         'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_6a489230-8b4c-4c63-bd0d-081a7aa19e5f.jpg?v=1664278346',
         "Bienvenue au point culminant de l'année en matière de pièces ! Aucun autre que le célèbre médaillé français Joaquin Jimenez, chef créateur de la Monnaie de Paris et créateur de nombreux dessins de pièces populaires, est responsable de la conception de cette nouvelle pièce sensationnelle. En plus de l'exceptionnel forme de la pièce, il allie finition antique, dorure partielle et même revêtement en émail. Le fruit de la collaboration entre Joaquin Jimenez et P. De Greef est absolument époustouflant.",
         'Francs'
+    ), (
+        'Evolution of Life - Synapsida',
+        'Argent',
+        '-318000000',
+        '500',
+        '180€',
+        'Mongolie',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_20a5c817-6781-473f-8304-cda92909c8d2.jpg?v=1662981079',
+        "La 8e édition de la série inégalée Evolution of Life étourdit avec un nouveau représentant remarquable d'un passé lointain. Edaphosaurus, qui signifie « lézard des pavés » pour ses denses grappes de dents, est un genre de synapsides éteintes. Il a parcouru la terre du Carbonifère supérieur au Permien inférieur (il y a 318 millions à 271 millions d'années). Le parent herbivore primitif des mammifères atteignait une longueur de corps de plus de 3,5 mètres, avec un crâne court et bas et des dents coniques émoussées.La caractéristique la plus distinctive, cependant, était la grande «voile» sur son dos. Bien que sa fonction soit toujours contestée, les chercheurs pensent que de telles voiles auraient pu fournir un camouflage, une protection contre les attaques de prédateurs, une régulation de la température corporelle ou une parade sexuelle et la reconnaissance des espèces.",
+        'Togrog'
+    ), (
+        'Napoléon Bonaparte',
+        'Argent',
+        '1804',
+        '1000',
+        '145€',
+        'Mongolie',
+        'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_34efac63-2ed3-47e5-a187-78d4f48411e0.jpg?v=1642152718',
+        "L'édition de cette année rend hommage au 200e anniversaire de la disparition de Napoléon Bonaparte. Il était un célèbre homme d'État français, un empereur et, surtout, un révolutionnaire. Il ne fait aucun doute qu'il a influencé l'histoire de manière significative. À quoi ressemblerait l'Europe aujourd'hui sans lui ? À quoi ressemblerait le monde s'il n'avait pas perdu la bataille de Waterloo ? Cette épreuve en argent d'une once a été frappée à seulement 1000 exemplaires et représente une célèbre peinture de Napoléon, qui le montre portant son célèbre chapeau et son uniforme de soldat caractéristique. La combinaison du haut-relief et de l'application des couleurs lui donne vraiment vie sur cette superbe pièce en argent. La pièce d'argent est accompagnée d'une pièce Proof en or classique d'un demi-gramme qui porte la même image et dont le tirage est limité à 5000 exemplaires.",
+        'Togrog'
     );
 
 /************** TABLE USER *****************/

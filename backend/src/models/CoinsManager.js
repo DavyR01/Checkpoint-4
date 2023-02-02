@@ -7,7 +7,7 @@ class CoinsManager extends AbstractManager {
 
   insert(coin) {
     return this.connection.query(
-      `insert into ${this.table} (name, metal, dateHistory, value, price, country, picture, content, devise) values (?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (name, metal, dateHistory, value, price, country, picture, content, devise) VALUES (?,?,?,?,?,?,?,?,?)`,
       [
         coin.name,
         coin.metal,
@@ -24,8 +24,19 @@ class CoinsManager extends AbstractManager {
 
   update(coin) {
     return this.connection.query(
-      `update ${this.table} set name = ? where id = ?`,
-      [coin.name, coin.id]
+      `UPDATE ${this.table} SET name = ?, metal = ?, dateHistory = ?, value = ?, price = ?, country = ?, picture = ?, content = ?, devise = ? WHERE id = ?`,
+      [
+        coin.name,
+        coin.metal,
+        coin.dateHistory,
+        coin.value,
+        coin.price,
+        coin.country,
+        coin.picture,
+        coin.content,
+        coin.devise,
+        coin.id,
+      ]
     );
   }
 }

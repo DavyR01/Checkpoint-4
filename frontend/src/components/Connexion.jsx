@@ -107,7 +107,7 @@ function Connexion() {
               <button
                 type="button"
                 onClick={() => setTime()}
-                className="buttonConnexion w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white hover:scale-105 duration-700 transition-transform"
+                className="buttonConnexion w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white hover:scale-105 duration-700 transition-transform active:bg-blue-600"
               >
                 Se Connecter{" "}
               </button>

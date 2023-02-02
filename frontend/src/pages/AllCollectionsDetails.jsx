@@ -26,14 +26,16 @@ export default function AllCollectionsDetails() {
         <div className="flex justify-center pb-8">
           <img src={valuesDetails.picture} alt="My_picture" width={400} />
         </div>
-        <div className="border-solid border-2 border-black p-4 bg-black text-white">
+        <div className="border-solid border-2 border-black p-4 bg-black text-white text-justify">
           {valuesDetails.content}
         </div>
-        <div className="bg-white border-b-2 border-black border-l-2 border-r-2 mb-16 p-3 text-center">
+        <div className="bg-white border-b-2 border-black border-l-2 border-r-2 mb-16 p-3 text-center text-xl">
           <div>
             {" "}
             Intitulé :{" "}
-            <span className="text-blue-900">{valuesDetails.name}</span>
+            <span className="text-blue-900 font-medium text-2xl">
+              {valuesDetails.name}
+            </span>
           </div>
           <div>
             {" "}
@@ -55,7 +57,9 @@ export default function AllCollectionsDetails() {
           <div>
             {" "}
             Prix monétaire :{" "}
-            <span className="text-blue-900">{valuesDetails.price}</span>
+            <span className="text-blue-900 font-semibold">
+              {valuesDetails.price}
+            </span>
           </div>
           <div className="mb-5">
             {" "}

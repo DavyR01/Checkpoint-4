@@ -1,9 +1,19 @@
+/* eslint-disable no-alert */
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-// import Accueil from "../pages/Accueil";
+import "../App.css";
 
 function Inscription() {
+  // const navigate = useNavigate();
+
+  const setTime = () => {
+    // e.preventDefault();
+    setTimeout(() => {
+      alert("Votre inscription a bien été prise en compte");
+      window.location.reload("/inscription");
+    }, 2000);
+  };
+
   return (
     <div className="bg-black">
       <section className="sectionDown pt-24">
@@ -107,8 +117,9 @@ function Inscription() {
                 />
               </div>
               <button
-                type="submit"
-                className="w-full bg-calypso hover:bg-calypsoLight font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white hover:scale-105 duration-700 transition-transform"
+                type="button"
+                onClick={(e) => setTime(e)}
+                className="buttonInscription w-full bg-calypso hover:bg-calypsoLight font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 active:bg-blue-600 hover:text-white hover:scale-105 duration-700 transition-transform"
               >
                 S'enregistrer{" "}
               </button>

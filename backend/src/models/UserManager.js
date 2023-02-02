@@ -5,10 +5,42 @@ class UserManager extends AbstractManager {
     super({ table: "user" });
   }
 
+  find(id) {
+    return this.connection.query(
+      `SELECT id, firstname, lastname, email, avatar FROM  ${this.table} WHERE id = ?`,
+      [id]
+    );
+  }
+
+  findAll() {
+    return this.connection.query(`SELECT * FROM  ${this.table}`);
+  }
+
+  findByEmailWithPassword(email) {
+    return this.connection.query(
+      `SELECT * from  ${this.table} WHERE email = ?`,
+      [email]
+    );
+  }
+
   insert(user) {
     return this.connection.query(
-      `insert into ${this.table} (firstname, lastname, email, hashedPassword) values (?, ?, ?, ?)`,
+      `INSERT into ${this.table} (firstname, lastname, email, hashedPassword) VALUES (?, ?, ?, ?)`,
       [user.firstname, user.lastname, user.email, user.hashedPassword]
+    );
+  }
+
+  update(user) {
+    return this.connection.query(
+      `UPDATE ${this.table} SET firstname = ?, lastname = ?, email = ? WHERE id = ?`,
+      [user.firstname, user.lastname, user.email, user.id]
+    );
+  }
+
+  updateAvatar(id, avatar) {
+    return this.connection.query(
+      `UPDATE ${this.table} SET avatar = ? where id = ?`,
+      [avatar, id]
     );
   }
 }

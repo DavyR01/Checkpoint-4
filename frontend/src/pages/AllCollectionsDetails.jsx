@@ -22,7 +22,7 @@ export default function AllCollectionsDetails() {
 
   return (
     <div className="text-black text-center flex justify-center">
-      <div className="pt-24 lg:w-5/12 w-8/12">
+      <div className="pt-24 xl:w-5/12 w-9/12">
         <div className="flex justify-center pb-8">
           <img src={valuesDetails.picture} alt="My_picture" width={400} />
         </div>

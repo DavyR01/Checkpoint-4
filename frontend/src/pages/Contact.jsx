@@ -10,8 +10,8 @@ export default function Contact() {
     <div className=" text-black text-center">
       <h1 className="text-center text-3xl p-5 pt-24">Formulaire de Contact</h1>
       <p className="p-2">
-        Une question ? Un doute ? Une suggestion ? Veuillez nous faire part de
-        vos retours en remplissant ce formulaire!
+        Une question ? Un doute ? Une suggestion ? <br /> Veuillez nous faire
+        part de vos retours en remplissant ce formulaire!
       </p>
       <form className="md:w-96 w-4/5 flex flex-col m-auto pt-8 text-left">
         <label className="flex flex-col text font-light">

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../styles/Navbar2.css";
+import Logo from "../assets/logo.png";
 
 function Navbar() {
   const [showLinks, setShowLinks] = React.useState(false);
@@ -28,6 +29,14 @@ function Navbar() {
         showLinks ? "showNav" : "hideNav"
       } navBar ${showLogo} && 'navBar'`}
     >
+      <NavLink to="/">
+        <div className="LogoNavBar flex items-center cursor-pointer">
+          <img src={Logo} alt="Logo Coins Drop " width={50} />
+          <p className="pl-3">
+            <span className="text-yellow-400">COINS</span> Drop
+          </p>
+        </div>
+      </NavLink>
       <ul className="navBarLinks">
         <li className="navBarItem slideInDown-1">
           <Link className="navBarLink" to="/" onClick={handleShowLinks}>

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../styles/Allcollections.css";
 import { NavLink } from "react-router-dom";
 import cross1 from "../assets/croix4.png";
+import { useCurrentUserContext } from "../contexts/userContext";
 // import NotFound from "../assets/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png";
 
 function AllCollections() {
   const [coins, setCoins] = useState([]);
+  const { token } = useCurrentUserContext();
   const myHeaders = new Headers();
 
   const getAllCoins = () => {
@@ -64,13 +66,17 @@ function AllCollections() {
                 </h1>
               </NavLink>
             ) : null}
-            <button type="button" onClick={() => deleteCoin(coin.id)}>
-              <img
-                src={cross1}
-                alt="croix delete"
-                className="absolute p-1 top-1 right-1 w-6 cursor-pointer"
-              />{" "}
-            </button>
+            {/* /********************RAJOUTER VERIFY TOKEN  *********************** */}
+            {token ? (
+              <button type="button" onClick={() => deleteCoin(coin.id)}>
+                <img
+                  src={cross1}
+                  alt="croix delete"
+                  className="absolute p-1 top-1 right-1 w-6 cursor-pointer"
+                />{" "}
+              </button>
+            ) : null}
+            {/* /********************RAJOUTER VERIFY TOKEN  *********************** */}
             <h1 className="text-sm text-blue-600 text-right text-bottom absolute bottom-3 right-3 ">
               {coin.price}
             </h1>

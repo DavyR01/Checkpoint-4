@@ -1,18 +1,51 @@
 /* eslint-disable no-alert */
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../App.css";
 
 function Inscription() {
-  // const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [password, setPassword] = useState("");
+  // const notify = () =>
+  //   toast.success("Votre inscription a bien été prise en compte");
 
-  const setTime = () => {
-    // e.preventDefault();
-    setTimeout(() => {
-      alert("Votre inscription a bien été prise en compte");
-      window.location.reload("/inscription");
-    }, 2000);
+  const navigate = useNavigate();
+
+  const handleForm = (e) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const body = JSON.stringify({
+      email,
+      firstname,
+      lastname,
+      password,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body,
+    };
+    e.preventDefault();
+    // on créé et on redirige
+    fetch("http://localhost:5000/api/register", requestOptions)
+      .then(() => {
+        alert("Votre inscription a bien été prise en compte");
+        navigate("/connexion");
+      })
+      .catch(console.error);
   };
+
+  // const setTime = () => {
+  //   // e.preventDefault();
+  //   setTimeout(() => {
+  //     alert("Votre inscription a bien été prise en compte");
+  //     window.location.reload("/inscription");
+  //   }, 2000);
+  // };
 
   return (
     <div className="bg-black">
@@ -47,7 +80,7 @@ function Inscription() {
               Inscription
             </h1>
 
-            <form noValidate className="space-y-6">
+            <form className="space-y-6" onSubmit={handleForm}>
               <div>
                 <label
                   htmlFor="firstname"
@@ -56,6 +89,7 @@ function Inscription() {
                   Prénom
                 </label>
                 <input
+                  onChange={(e) => setFirstname(e.target.value)}
                   placeholder="Livre"
                   name="firstname"
                   label="Firstname"
@@ -73,6 +107,7 @@ function Inscription() {
                   Nom de famille{" "}
                 </label>
                 <input
+                  onChange={(e) => setLastname(e.target.value)}
                   placeholder="Sterling"
                   name="lastname"
                   label="Lastname"
@@ -90,12 +125,12 @@ function Inscription() {
                   E-mail{" "}
                 </label>
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Livre.Sterling@example.com"
                   id="email"
                   label="Email Address"
                   name="email"
                   type="email"
-                  autoComplete="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 />
               </div>
@@ -107,6 +142,7 @@ function Inscription() {
                   Mot de passe{" "}
                 </label>
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="543210"
                   name="password"
                   label="Password"
@@ -117,8 +153,8 @@ function Inscription() {
                 />
               </div>
               <button
-                type="button"
-                onClick={(e) => setTime(e)}
+                type="submit"
+                // onClick={(e) => setTime(e)}
                 className="buttonInscription w-full bg-calypso hover:bg-calypsoLight font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 active:bg-blue-600 hover:text-white hover:scale-105 duration-700 transition-transform"
               >
                 S'enregistrer{" "}

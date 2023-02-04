@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import { useCurrentUserContext } from "../contexts/userContext";
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
@@ -12,7 +13,9 @@ export default function Dashboard() {
   const [picture, setPicture] = useState("");
   const [content, setContent] = useState("");
   const [devise, setDevise] = useState("");
+
   const navigate = useNavigate();
+  // const { token } = useCurrentUserContext;
 
   const handleForm = (e) => {
     const myHeaders = new Headers();

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 export default function AllCollectionsDetails() {
   const [valuesDetails, setValuesDetails] = useState([]);
+
   const idParam = useParams();
 
   const getCoinsById = () => {

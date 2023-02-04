@@ -1,16 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useCurrentUserContext } from "../contexts/userContext";
 // import Accueil from "../pages/Accueil";
 import "../styles/Connexion.css";
 
 function Connexion() {
+  const { setUser, setToken } = useCurrentUserContext();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const setTime = () => {
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const body = JSON.stringify({
+      email,
+      password,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body,
+    };
+
+    if (email && password) {
+      // on appelle le back
+      fetch("http://localhost:5000/api/login", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setUser(result.user);
+          setToken(result.token);
+          navigate("/");
+          window.location.reload();
+        })
+        .catch(console.error);
+    } else {
+      setErrorMessage("Merci de spécifier un email et un mot de passe correct");
+    }
   };
+
+  // const setTime = () => {
+  //   setTimeout(() => {
+  //     navigate("/");
+  //   }, 3000);
+  // };
 
   return (
     <div className="">
@@ -66,7 +103,7 @@ function Connexion() {
               {" "}
               Connexion{" "}
             </h1>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="email"
@@ -75,7 +112,8 @@ function Connexion() {
                   E-mail{" "}
                 </label>
                 <input
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  onChange={(e) => setEmail(e.target.value)}
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   placeholder="Email"
                   required
                   id="email"
@@ -94,6 +132,7 @@ function Connexion() {
                   Mot de passe{" "}
                 </label>
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                   required
                   id="password"
@@ -105,8 +144,8 @@ function Connexion() {
                 />
               </div>
               <button
-                type="button"
-                onClick={() => setTime()}
+                type="submit"
+                // onClick={() => setTime()}
                 className="buttonConnexion w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white hover:scale-105 duration-700 transition-transform active:bg-blue-600"
               >
                 Se Connecter{" "}
@@ -117,7 +156,7 @@ function Connexion() {
                   {" "}
                   <NavLink to="/inscription">
                     {" "}
-                    Pas encore de compte ? Cliquez ici{" "}
+                    Pas encore de compte ? Cliquez ici {errorMessage}
                   </NavLink>
                 </span>
               </div>

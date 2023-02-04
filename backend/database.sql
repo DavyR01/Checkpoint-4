@@ -1,3 +1,64 @@
+/************** TABLE USER *****************/
+
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE
+    user (
+        id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        firstname VARCHAR(100) NOT NULL,
+        lastname VARCHAR(100) NOT NULL,
+        email VARCHAR(200) NOT NULL,
+        avatar VARCHAR(255),
+        hashedPassword VARCHAR(100) NOT NULL,
+        is_admin TINYINT NOT NULL DEFAULT 0
+    );
+
+INSERT INTO
+    user (
+        firstname,
+        lastname,
+        email,
+        hashedPassword,
+        avatar,
+        is_admin
+    )
+VALUES (
+        'Davy',
+        'ROBERT',
+        'test@test.com',
+        'test',
+        'monavatar1.jpeg',
+        '1'
+    ), (
+        'Vito',
+        'Corléone',
+        'test1@test.com',
+        'test',
+        'monavatar2.jpeg',
+        '0'
+    ), (
+        'James',
+        'BOND',
+        'test2@test.com',
+        'test',
+        'monavatar3.jpeg',
+        '0'
+    ), (
+        'Warner',
+        'BROS',
+        'test3@test.com',
+        'test',
+        'monavatar4.jpeg',
+        '0'
+    ), (
+        'Tony',
+        'MONTANA',
+        'test4@test.com',
+        'test',
+        'monavatar5.jpeg',
+        '0'
+    );
+
 /************** TABLE coins *****************/
 
 DROP TABLE IF EXISTS coins;
@@ -5,15 +66,17 @@ DROP TABLE IF EXISTS coins;
 CREATE TABLE
     coins (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        name VARCHAR(100) NULL,
+        name VARCHAR(100) NOT NULL,
         metal VARCHAR(100) NULL,
         dateHistory INT NULL,
         value INT NULL,
-        price VARCHAR(100) NULL,
+        price VARCHAR(100) NOT NULL,
         country VARCHAR(255) NULL,
         picture VARCHAR(255),
         content VARCHAR(3000),
-        devise VARCHAR(100)
+        devise VARCHAR(100),
+        user_id INT,
+        FOREIGN KEY (user_id) REFERENCES user(id)
     );
 
 INSERT INTO
@@ -198,60 +261,4 @@ VALUES (
         'https://cdn.shopify.com/s/files/1/0021/7887/5438/products/1_34efac63-2ed3-47e5-a187-78d4f48411e0.jpg?v=1642152718',
         "L'édition de cette année rend hommage au 200e anniversaire de la disparition de Napoléon Bonaparte. Il était un célèbre homme d'État français, un empereur et, surtout, un révolutionnaire. Il ne fait aucun doute qu'il a influencé l'histoire de manière significative. À quoi ressemblerait l'Europe aujourd'hui sans lui ? À quoi ressemblerait le monde s'il n'avait pas perdu la bataille de Waterloo ? Cette épreuve en argent d'une once a été frappée à seulement 1000 exemplaires et représente une célèbre peinture de Napoléon, qui le montre portant son célèbre chapeau et son uniforme de soldat caractéristique. La combinaison du haut-relief et de l'application des couleurs lui donne vraiment vie sur cette superbe pièce en argent. La pièce d'argent est accompagnée d'une pièce Proof en or classique d'un demi-gramme qui porte la même image et dont le tirage est limité à 5000 exemplaires.",
         'Togrog'
-    );
-
-/************** TABLE USER *****************/
-
-DROP TABLE IF EXISTS user;
-
-CREATE TABLE
-    user (
-        id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        firstname VARCHAR(100) NOT NULL,
-        lastname VARCHAR(100) NOT NULL,
-        email VARCHAR(200) NOT NULL,
-        avatar VARCHAR(255),
-        hashedPassword VARCHAR(100) NOT NULL,
-        coins_id INT,
-        FOREIGN KEY (coins_id) REFERENCES coins(id)
-    );
-
-INSERT INTO
-    user (
-        firstname,
-        lastname,
-        email,
-        hashedPassword,
-        avatar
-    )
-VALUES (
-        'Davy',
-        'ROBERT',
-        'test@test.com',
-        'test',
-        'monavatar1.jpeg'
-    ), (
-        'Vito',
-        'Corléone',
-        'test1@test.com',
-        'test',
-        'monavatar2.jpeg'
-    ), (
-        'James',
-        'BOND',
-        'test2@test.com',
-        'test',
-        'monavatar3.jpeg'
-    ), (
-        'Warner',
-        'BROS',
-        'test3@test.com',
-        'test',
-        'monavatar4.jpeg'
-    ), (
-        'Tony',
-        'MONTANA',
-        'test4@test.com',
-        'test',
-        'monavatar5.jpeg'
     );

@@ -16,7 +16,7 @@ export default function Accueil() {
             COINS Drop
           </p>
         </div>
-        <div className="text-white h-72 w-10/12 lg:w-5/12 flex justify-start ">
+        <div className="text-white h-72 w-10/12 lg:w-5/12 flex justify-start">
           <p className="p-5 ml-10 pt-20 md:text-xl text-yellow-500">
             <span className="text-xl md:text-3xl">
               Bienvenue sur notre site dédié aux collectionneurs de pièces de
@@ -85,12 +85,12 @@ export default function Accueil() {
             <p> €24,95</p>
           </div>
           <div>
-            <img src={img2} alt="img1" />
+            <img src={img2} alt="img2" />
             <p>MONNAIE OR - ITALIE 20 LIRE UMBERTO I </p>
             <p>€499,00 </p>
           </div>
           <div>
-            <img src={img3} alt="img1" />
+            <img src={img3} alt="img3" />
             <p>1 FRANC INSTITUT DE FRANCE 1995 </p>
             <p>€11,95 </p>
           </div>

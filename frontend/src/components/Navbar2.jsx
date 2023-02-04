@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/Navbar2.css";
 import Logo from "../assets/logo.png";
+import { useCurrentUserContext } from "../contexts/userContext";
 
 function Navbar() {
   const [showLinks, setShowLinks] = React.useState(false);
   const [showLogo, setShowLogo] = React.useState(false);
+  const { token, user, setUser } = useCurrentUserContext();
+  const navigate = useNavigate();
+
   const controlLogo = () => {
     if (window.scrollY > 200) {
       setShowLogo(true);
@@ -23,6 +27,15 @@ function Navbar() {
     setShowLinks(!showLinks);
   };
 
+  const handleDisconnection = () => {
+    localStorage.clear();
+    setUser({});
+    handleShowLinks();
+    window.location.reload();
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
     <nav
       className={`navBar ${
@@ -35,6 +48,12 @@ function Navbar() {
           <p className="pl-3">
             <span className="text-yellow-400">COINS</span> Drop
           </p>
+          {token ? (
+            <div className="ml-12">
+              Bonjour {user.firstname}, nous sommes le :{" "}
+              {new Date().toLocaleDateString()}{" "}
+            </div>
+          ) : null}
         </div>
       </NavLink>
       <ul className="navBarLinks">
@@ -43,11 +62,17 @@ function Navbar() {
             Accueil
           </Link>
         </li>
-        <li className="navBarItem slideInDown-1">
-          <Link className="navBarLink" to="dashboard" onClick={handleShowLinks}>
-            Tableau de bord
-          </Link>
-        </li>
+        {token ? (
+          <li className="navBarItem slideInDown-1">
+            <Link
+              className="navBarLink"
+              to="dashboard"
+              onClick={handleShowLinks}
+            >
+              Tableau de bord
+            </Link>
+          </li>
+        ) : null}
         <li className="navBarItem slideInDown-2">
           <Link
             className="navBarLink"
@@ -57,29 +82,50 @@ function Navbar() {
             Catalogue Pièces
           </Link>
         </li>
-        <li className="navBarItem slideInDown-3">
-          <Link
-            className="navBarLink"
-            to="mycollection"
-            onClick={handleShowLinks}
-          >
-            Ma Collection
-          </Link>
-        </li>
+        {token ? (
+          <li className="navBarItem slideInDown-3">
+            <Link
+              className="navBarLink"
+              to="mycollection"
+              onClick={handleShowLinks}
+            >
+              Ma Collection
+            </Link>
+          </li>
+        ) : null}
         <li className="navBarItem slideInDown-4">
           <Link className="navBarLink" to="contact" onClick={handleShowLinks}>
             Contact
           </Link>
         </li>
-        <li className="navBarItem slideInDown-4">
-          <Link
-            className="navBarLink"
-            to="authentification"
-            onClick={handleShowLinks}
-          >
-            Mon Espace Compte
-          </Link>
-        </li>
+        {token ? (
+          <li className="navBarItem slideInDown-4">
+            <Link
+              className="navBarLink"
+              to="myprofile"
+              onClick={handleShowLinks}
+            >
+              Mon Profil
+            </Link>
+          </li>
+        ) : (
+          <li className="navBarItem slideInDown-4">
+            <Link
+              className="navBarLink"
+              to="authentification"
+              onClick={handleShowLinks}
+            >
+              Mon Compte
+            </Link>
+          </li>
+        )}
+        {token ? (
+          <li className="navBarItem slideInDown-4 bg-slate-100 text-black">
+            <button type="button" onClick={handleDisconnection}>
+              X Se déconnecter
+            </button>
+          </li>
+        ) : null}
       </ul>
       <button className="navBurger" type="button" onClick={handleShowLinks}>
         <span className="burgerLine" />

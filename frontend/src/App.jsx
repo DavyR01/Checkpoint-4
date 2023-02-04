@@ -11,16 +11,13 @@ import Contact from "./pages/Contact";
 import Authentification from "./pages/Authentification";
 import Dashboard from "./pages/Dashboard";
 import AllCollectionsDetails from "./pages/AllCollectionsDetails";
-import {
-  CurrentUserContextProvider,
-  useCurrentUserContext,
-} from "./contexts/userContext";
+import { CurrentUserContextProvider } from "./contexts/userContext";
 import MyProfile from "./pages/MyProfile";
 
 // import Tendances from "./pages/Tendances";
 
 function App() {
-  const { token } = useCurrentUserContext;
+  // const { token } = useCurrentUserContext;
 
   return (
     <div className="App">

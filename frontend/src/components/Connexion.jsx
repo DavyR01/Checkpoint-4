@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../contexts/userContext";
 // import Accueil from "../pages/Accueil";
@@ -10,6 +11,10 @@ function Connexion() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  // const notify = () =>
+  //   toast.error(
+  //     "Vous n'êtes pas inscrit ou vous avez mal renseigné vos identifiants"
+  //   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,11 +37,18 @@ function Connexion() {
       fetch("http://localhost:5000/api/login", requestOptions)
         .then((response) => response.json())
         .then((result) => {
-          setUser(result.user);
-          setToken(result.token);
-          navigate("/");
-          window.location.reload();
+          if (result.token) {
+            setUser(result.user);
+            setToken(result.token);
+            navigate("/");
+            window.location.reload();
+          } else {
+            toast.error(
+              "Vous n'êtes pas inscrit ou vous avez mal renseigné vos identifiants"
+            );
+          }
         })
+        // .catch((error) => console.warn(error));
         .catch(console.error);
     } else {
       setErrorMessage("Merci de spécifier un email et un mot de passe correct");
@@ -97,12 +109,15 @@ function Connexion() {
         </div>
       </div> */}
       <div className="flex justify-center pb-28">
+        <Toaster position="bottom-center" reverseOrder={false} />
+
         <div className="w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8">
           <div className="login">
             <h1 className="text-xl font-medium text-gray-900 text-center">
               {" "}
               Connexion{" "}
             </h1>
+            {/* <form className="space-y-6" onSubmit={handleSubmit}> */}
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -145,7 +160,7 @@ function Connexion() {
               </div>
               <button
                 type="submit"
-                // onClick={() => setTime()}
+                // onSubmit={handleSubmit}
                 className="buttonConnexion w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center border-solid border-black border-2 hover:bg-yellow-500 hover:text-white hover:scale-105 duration-700 transition-transform active:bg-blue-600"
               >
                 Se Connecter{" "}

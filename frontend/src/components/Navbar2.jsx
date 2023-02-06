@@ -42,20 +42,25 @@ function Navbar() {
         showLinks ? "showNav" : "hideNav"
       } navBar ${showLogo} && 'navBar'`}
     >
-      <NavLink to="/">
-        <div className="LogoNavBar flex items-center cursor-pointer">
-          <img src={Logo} alt="Logo Coins Drop " width={50} />
-          <p className="pl-3">
-            <span className="text-yellow-400">COINS</span> Drop
-          </p>
-          {token ? (
-            <div className="ml-12">
-              Bonjour {user.firstname}, nous sommes le :{" "}
-              {new Date().toLocaleDateString()}{" "}
-            </div>
-          ) : null}
-        </div>
-      </NavLink>
+      <div className="LogoNavBar flex items-center">
+        <NavLink to="/">
+          <img
+            src={Logo}
+            alt="Logo Coins Drop "
+            className="cursor-pointer"
+            width={50}
+          />
+        </NavLink>
+        <p className="pl-3">
+          <span className="text-yellow-400">COINS</span> Drop
+        </p>
+        {token ? (
+          <div className="ml-12 max-md:hidden">
+            Bonjour {user.firstname}, nous sommes le :{" "}
+            {new Date().toLocaleDateString()}{" "}
+          </div>
+        ) : null}
+      </div>
       <ul className="navBarLinks">
         <li className="navBarItem slideInDown-1">
           <Link className="navBarLink" to="/" onClick={handleShowLinks}>

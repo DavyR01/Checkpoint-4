@@ -28,12 +28,15 @@ router.post(
 router.get("/api/coins", coinsControllers.browse);
 router.get("/api/coins/:id", coinsControllers.read);
 router.put("/api/coins/:id", verifyToken, coinsControllers.edit);
-router.post("/api/coins", coinsControllers.add);
-router.delete("/api/coins/:id", coinsControllers.destroy);
+router.post("/api/coins", verifyToken, coinsControllers.add);
+router.delete("/api/coins/:id", verifyToken, coinsControllers.destroy);
 
 // Gestion des users
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
+
+// app.use(verifyToken); // authentication wall : verifyToken is activated for each route after this line
+
 router.post("/api/users", hashPassword, verifyToken, userControllers.add);
 router.put("/api/users/:id", hashPassword, verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);

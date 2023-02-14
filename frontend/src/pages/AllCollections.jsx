@@ -25,13 +25,13 @@ function AllCollections() {
 
   const deleteCoin = (id) => {
     // alert(id);
-    alert("Suppression réussie");
     fetch(`http://localhost:5000/api/coins/${id}`, {
       method: "delete",
       redirect: "follow",
       headers: myHeaders,
     })
       .then((result) => {
+        alert("Suppression réussie");
         result.json();
       })
       .then((response) => {

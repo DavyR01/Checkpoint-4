@@ -51,12 +51,13 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const coins = req.body;
+  const coin = req.body;
+  // coin.user_id = req.payloads.sub;
 
   // TODO validations (length, format...)
 
   models.coins
-    .insert(coins)
+    .insert(coin)
     .then(([result]) => {
       res.location(`api/coins/${result.insertId}`).sendStatus(201);
     })

@@ -69,7 +69,7 @@ const verifyPassword = (req, res) => {
 const verifyToken = (req, res, next) => {
   try {
     // const authorizationHeader = req.get("Authorization");
-    const authorizationHeader = req.headers.Authorization;
+    const authorizationHeader = req.headers.authorization;
 
     if (authorizationHeader == null) {
       throw new Error("Authorization header is missing");
@@ -81,7 +81,7 @@ const verifyToken = (req, res, next) => {
       throw new Error("Authorization header has not the 'Bearer' type");
     }
 
-    req.payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.payloads = jwt.verify(token, process.env.JWT_SECRET);
 
     next();
   } catch (err) {

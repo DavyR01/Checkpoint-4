@@ -28,7 +28,7 @@ router.post(
 router.get("/api/coins", coinsControllers.browse);
 router.get("/api/coins/:id", coinsControllers.read);
 router.put("/api/coins/:id", verifyToken, coinsControllers.edit);
-router.post("/api/coins", verifyToken, coinsControllers.add);
+router.post("/api/coins", coinsControllers.add);
 router.delete("/api/coins/:id", verifyToken, coinsControllers.destroy);
 
 // Gestion des users

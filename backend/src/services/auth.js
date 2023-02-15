@@ -2,7 +2,7 @@ const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
 // const { JWT_SECRET, JWT_TIMING } = process.env;
-const { JWT_TIMING } = process.env;
+const { JWT_SECRET, JWT_TIMING } = process.env;
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -33,7 +33,7 @@ const verifyPassword = (req, res) => {
       if (isVerified) {
         const payload = { sub: req.user.id };
 
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        const token = jwt.sign(payload, JWT_SECRET, {
           algorithm: "HS512",
           expiresIn: JWT_TIMING,
         });
@@ -80,6 +80,7 @@ const verifyToken = (req, res, next) => {
     if (type !== "Bearer") {
       throw new Error("Authorization header has not the 'Bearer' type");
     }
+    if (!token) throw new Error("Token needed");
 
     req.payloads = jwt.verify(token, process.env.JWT_SECRET);
 

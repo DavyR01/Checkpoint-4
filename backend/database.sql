@@ -25,8 +25,8 @@ INSERT INTO
 VALUES (
         'Davy',
         'ROBERT',
-        'test@test.com',
-        'test',
+        'test@gmail.com',
+        '$argon2id$v=19$m=65536,t=5,p=1$dM9fPFjgKhVSMghBk+OtvA$plOa1LGuw8oDPN9qyZnPDt84vGj0R7pekyVgFVbGfi4',
         'monavatar1.jpeg',
         '1'
     ), (

@@ -11,7 +11,7 @@ CREATE TABLE
         avatar VARCHAR(255),
         hashedPassword VARCHAR(100) NOT NULL,
         is_admin TINYINT NOT NULL DEFAULT 0
-    );
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
     user (
@@ -75,9 +75,9 @@ CREATE TABLE
         picture VARCHAR(255),
         content VARCHAR(3000),
         devise VARCHAR(100),
-        user_id INT,
+        user_id INT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES user(id)
-    );
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO
     coins (

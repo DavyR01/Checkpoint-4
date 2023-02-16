@@ -75,7 +75,7 @@ CREATE TABLE
         picture VARCHAR(255),
         content VARCHAR(3000),
         devise VARCHAR(100),
-        user_id INT NOT NULL,
+        user_id INT NOT NULL, /* NOT NULL or NULL */
         FOREIGN KEY (user_id) REFERENCES user(id)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
